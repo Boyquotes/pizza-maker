@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/HUD.gd" type="Script" id=1]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="ToppingUp" type="Label" parent="."]
+margin_left = 197.0
+margin_top = 90.0
+margin_right = 237.0
+margin_bottom = 104.0
+text = "Peps"
+align = 1
+
+[node name="ToppingLeft" type="Label" parent="."]
+margin_left = 158.0
+margin_top = 107.0
+margin_right = 198.0
+margin_bottom = 121.0
+text = "Peps"
+align = 1
+
+[node name="ToppingDown" type="Label" parent="."]
+margin_left = 175.0
+margin_top = 128.0
+margin_right = 215.0
+margin_bottom = 142.0
+text = "Peps"
+align = 1
+
+[node name="ToppingRight" type="Label" parent="."]
+margin_left = 213.0
+margin_top = 111.0
+margin_right = 253.0
+margin_bottom = 125.0
+text = "Peps"
+align = 1
+
+[node name="Label" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 112.0
+margin_right = 142.0
+margin_bottom = 144.0
+text = "This
+Is a test"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 105.0
+margin_top = 133.0
+margin_right = 145.0
+margin_bottom = 147.0
+text = "Cook"
+align = 1

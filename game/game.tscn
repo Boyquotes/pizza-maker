@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/pizza/pizza.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/game.gd" type="Script" id=2]
+[ext_resource path="res://game/bg_black.png" type="Texture" id=3]
+[ext_resource path="res://game/hud/HUD.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "slide_pizza_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pizza:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -48, 73 ), Vector2( 128, 73 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "slide_pizza_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pizza:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 128, 73 ), Vector2( 128, -50 ) ]
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 130.5, 77.5 )
+scale = Vector2( 33.625, 20.375 )
+texture = ExtResource( 3 )
+
+[node name="Pizza" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 73 )
+scale = Vector2( 2, 2 )
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/slide_pizza_in = SubResource( 1 )
+anims/slide_pizza_out = SubResource( 2 )
