@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -48, 73 ), Vector2( 128, 73 ) ]
+"values": [ Vector2( -98, 138 ), Vector2( 263, 138 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -33,20 +33,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 128, 73 ), Vector2( 128, -50 ) ]
+"values": [ Vector2( 263, 136 ), Vector2( 263, -86 ) ]
 }
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 130.5, 77.5 )
-scale = Vector2( 33.625, 20.375 )
+position = Vector2( 261, 153 )
+scale = Vector2( 65.625, 39.625 )
 texture = ExtResource( 3 )
 
 [node name="Pizza" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 73 )
-scale = Vector2( 2, 2 )
+position = Vector2( 263, 138 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 

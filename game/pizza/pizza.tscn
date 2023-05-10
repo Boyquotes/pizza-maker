@@ -24,7 +24,6 @@ tracks/0/keys = {
 }
 
 [node name="Pizza" type="Node2D"]
-scale = Vector2( 1.99406, 1.99406 )
 script = ExtResource( 3 )
 
 [node name="Dough" type="Sprite" parent="."]
