@@ -6,26 +6,26 @@
 script = ExtResource( 1 )
 
 [node name="ToppingUp" type="Label" parent="."]
-margin_left = 429.0
-margin_top = 205.0
-margin_right = 469.0
-margin_bottom = 219.0
+margin_left = 418.0
+margin_top = 201.0
+margin_right = 458.0
+margin_bottom = 215.0
 text = "Peps"
 align = 1
 
 [node name="ToppingLeft" type="Label" parent="."]
 margin_left = 390.0
-margin_top = 222.0
+margin_top = 226.0
 margin_right = 430.0
-margin_bottom = 236.0
+margin_bottom = 240.0
 text = "Peps"
 align = 1
 
 [node name="ToppingDown" type="Label" parent="."]
-margin_left = 407.0
-margin_top = 243.0
-margin_right = 447.0
-margin_bottom = 257.0
+margin_left = 415.0
+margin_top = 249.0
+margin_right = 455.0
+margin_bottom = 263.0
 text = "Peps"
 align = 1
 

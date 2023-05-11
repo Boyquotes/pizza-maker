@@ -2,14 +2,14 @@ extends Node
 
 
 var toppings: Dictionary = {
-	"up": "cheese",
+	"up": "ex cheese",
 	"down": "chicken",
 	"left": "pepperoni",
 	"right": "olives",
 	"alt_up": "pineapple",
 	"alt_down": "mushrooms",
-	"alt_left": "topping 7",
-	"alt_right": "topping 8",
+	"alt_left": "g. pepers",
+	"alt_right": "onion",
 }
 
 

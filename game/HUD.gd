@@ -19,15 +19,15 @@ func _load_font(path: String) -> void:
 
 func update_labels(shift_down: bool) -> void:
 	if shift_down:
-		self.topping_up.text = Global.toppings.alt_up
-		self.topping_down.text = Global.toppings.alt_down
-		self.topping_left.text = Global.toppings.alt_left
-		self.topping_right.text = Global.toppings.alt_right
+		self.topping_up.text = Global.toppings.alt_up.capitalize()
+		self.topping_down.text = Global.toppings.alt_down.capitalize()
+		self.topping_left.text = Global.toppings.alt_left.capitalize()
+		self.topping_right.text = Global.toppings.alt_right.capitalize()
 	else:
-		self.topping_up.text = Global.toppings.up
-		self.topping_down.text = Global.toppings.down
-		self.topping_left.text = Global.toppings.left
-		self.topping_right.text = Global.toppings.right
+		self.topping_up.text = Global.toppings.up.capitalize()
+		self.topping_down.text = Global.toppings.down.capitalize()
+		self.topping_left.text = Global.toppings.left.capitalize()
+		self.topping_right.text = Global.toppings.right.capitalize()
 
 
 func _set_font() -> void:

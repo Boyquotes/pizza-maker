@@ -50,5 +50,9 @@ func _tween_done(object: Object, node_path: NodePath):
 	pass
 
 func add_topping(topping: String) -> void:
-	print_debug(topping)
+	if !self.toppings.has(topping):
+		print_debug(str("adding ", topping))
+		self.toppings.append(topping)
+	else:
+		print(str("Pizza already has ", topping.capitalize()))
 	
