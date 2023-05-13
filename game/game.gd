@@ -16,7 +16,10 @@ func _process(delta: float) -> void:
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if event.is_action_pressed("ui_accept"):
 		# $Pizza.pulse()
-		$AnimationPlayer.play("slide_pizza_out")
+		if self.is_shift_held:
+			pass # Cook pizza
+		else:
+			$AnimationPlayer.play("slide_pizza_out")
 		
 	if event.is_action_pressed("up_topping"):
 		$Pizza.pulse()
