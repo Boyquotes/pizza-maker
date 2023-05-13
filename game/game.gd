@@ -14,6 +14,7 @@ var daily_income: float
 var daily_tips: float
 
 
+
 onready var pizza: Pizza = get_node("Pizza")
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var trm_next_order: Timer = get_node("TrmNextOrder")
@@ -25,6 +26,7 @@ func _ready() -> void:
 	self.animation_player.connect("animation_finished", self, "_on_animation_done")
 	self.trm_next_order.connect("timeout", self, "_start_new_round")
 	self.trm_order_time.connect("timeout", self, "_end_round")
+	self._start_new_round()
 
 func _process(delta: float) -> void:
 	self.is_shift_held = Input.is_action_pressed("left_shift")
@@ -32,38 +34,41 @@ func _process(delta: float) -> void:
 	
 
 func _unhandled_key_input(event: InputEventKey) -> void:
-	if event.is_action_pressed("ui_accept"):
-		# $Pizza.pulse()
-		if self.is_shift_held:
-			self.pizza.cook()
-		else:
-			self.animation_player.play("slide_pizza_out")
-			# start timer to get new order and send in blank pizza
-		
-	if event.is_action_pressed("up_topping"):
-		self.pizza.pulse()
-		if self.is_shift_held:
-			self.pizza.add_topping(Global.toppings.alt_up)
-		else:
-			self.pizza.add_topping(Global.toppings.up)
-	elif event.is_action_pressed("down_topping"):
-		self.pizza.pulse()
-		if self.is_shift_held:
-			self.pizza.add_topping(Global.toppings.alt_down)
-		else:
-			self.pizza.add_topping(Global.toppings.down)
-	elif event.is_action_pressed("left_topping"):
-		self.pizza.pulse()
-		if self.is_shift_held:
-			self.pizza.add_topping(Global.toppings.alt_left)
-		else:
-			self.pizza.add_topping(Global.toppings.left)
-	elif event.is_action_pressed("right_topping"):
-		self.pizza.pulse()
-		if self.is_shift_held:
-			self.pizza.add_topping(Global.toppings.alt_right)
-		else:
-			self.pizza.add_topping(Global.toppings.right)
+	
+	if !self.animation_player.is_playing():
+		if event.is_action_pressed("ui_accept"):
+			# $Pizza.pulse()
+			if self.is_shift_held:
+				self.pizza.cook()
+			else:
+				# TODO: Prevent spamming of pressing sapce
+				self.animation_player.play("slide_pizza_out")
+				# start timer to get new order and send in blank pizza
+			
+		if event.is_action_pressed("up_topping"):
+			self.pizza.pulse()
+			if self.is_shift_held:
+				self.pizza.add_topping(Global.toppings.alt_up)
+			else:
+				self.pizza.add_topping(Global.toppings.up)
+		elif event.is_action_pressed("down_topping"):
+			self.pizza.pulse()
+			if self.is_shift_held:
+				self.pizza.add_topping(Global.toppings.alt_down)
+			else:
+				self.pizza.add_topping(Global.toppings.down)
+		elif event.is_action_pressed("left_topping"):
+			self.pizza.pulse()
+			if self.is_shift_held:
+				self.pizza.add_topping(Global.toppings.alt_left)
+			else:
+				self.pizza.add_topping(Global.toppings.left)
+		elif event.is_action_pressed("right_topping"):
+			self.pizza.pulse()
+			if self.is_shift_held:
+				self.pizza.add_topping(Global.toppings.alt_right)
+			else:
+				self.pizza.add_topping(Global.toppings.right)
 		
 
 func _start_new_day() -> void:
