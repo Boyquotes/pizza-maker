@@ -1,6 +1,8 @@
 class_name Pizza
 extends Node2D
 
+
+
 enum TOPPINGS {
 	CHEESE,
 	PEPS,
@@ -26,15 +28,33 @@ var seconds = 0.02
 func _ready() -> void:
 	$Tween.connect("tween_completed", self, "_tween_done")
 
-
-func clear_pizza() -> void:
+func reset_pizza() -> void:
+	self.modulate = "ffffff"
+	$SteamSprites.visible = false
 	self.toppings = []
+	
+
+
 
 func pulse() -> void:
 	_scale_down()
 	yield($Tween,"tween_completed")
 	_scale_up()
 
+func _get_steam_pos() -> Vector2:
+	randomize()
+	var center = $Area2D/CollisionShape2D.position + $Area2D.position
+	var size = $Area2D/CollisionShape2D.shape.extents
+	
+	var ranX = (randi() % int(size.x)) - (size.x/2)
+	var ranY = (randi() % int(size.y)) - (size.y/2)
+	
+	return Vector2(ranX,ranY)
+
+
+func _add_steam() -> void:
+	self.modulate = "e5c7c7"
+	$SteamSprites.visible = true
 
 func _scale_down() -> void:
 	$Tween.interpolate_property(self, "scale", self.scale, scaleDown, seconds, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
