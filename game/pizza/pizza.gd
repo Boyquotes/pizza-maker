@@ -17,7 +17,7 @@ onready var peps: Sprite = $Peps
 
 onready var scaleUp: Vector2 = self.scale
 
-
+var is_cooked: bool 
 
 var toppings: Array
 var scaleDown: Vector2 = self.scale - Vector2(0.2, 0.2)
@@ -32,6 +32,7 @@ func reset_pizza() -> void:
 	self.modulate = "ffffff"
 	$SteamSprites.visible = false
 	self.toppings = []
+	self.is_cooked = false
 	
 
 
@@ -51,6 +52,9 @@ func _get_steam_pos() -> Vector2:
 	
 	return Vector2(ranX,ranY)
 
+func cook() -> void:
+	_add_steam()
+	self.is_cooked = true
 
 func _add_steam() -> void:
 	self.modulate = "e5c7c7"

@@ -17,9 +17,10 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 	if event.is_action_pressed("ui_accept"):
 		# $Pizza.pulse()
 		if self.is_shift_held:
-			pass # Cook pizza
+			self.pizza.cook()
 		else:
 			$AnimationPlayer.play("slide_pizza_out")
+			# start timer to get new order and send in blank pizza
 		
 	if event.is_action_pressed("up_topping"):
 		$Pizza.pulse()

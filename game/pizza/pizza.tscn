@@ -75,35 +75,32 @@ anims/slide_in = SubResource( 2 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="SteamSprites" type="Node2D" parent="."]
+visible = false
 
 [node name="Steam" type="AnimatedSprite" parent="SteamSprites"]
 position = Vector2( -36, -45 )
 frames = SubResource( 9 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Steam2" type="AnimatedSprite" parent="SteamSprites"]
 position = Vector2( 39, 14 )
 frames = SubResource( 9 )
-frame = 2
 playing = true
 
 [node name="Steam3" type="AnimatedSprite" parent="SteamSprites"]
 position = Vector2( 22, -39 )
 frames = SubResource( 9 )
-frame = 1
 playing = true
 
 [node name="Steam4" type="AnimatedSprite" parent="SteamSprites"]
 position = Vector2( -2, -3 )
 frames = SubResource( 9 )
-frame = 1
 playing = true
 
 [node name="Steam5" type="AnimatedSprite" parent="SteamSprites"]
 position = Vector2( -38, 21 )
 frames = SubResource( 9 )
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

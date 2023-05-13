@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var font: DynamicFont
+var font_smaller: DynamicFont
 
 onready var topping_up: Label = $ToppingUp
 onready var topping_down: Label = $ToppingDown
@@ -14,6 +15,7 @@ onready var down_back: Label = $DownBack
 onready var right_back: Label = $RightBack
 onready var bottom_back: Label = $BottomBack
 
+onready var order_list: VBoxContainer = $Order
 
 
 func _ready() -> void:
@@ -24,6 +26,10 @@ func _load_font(path: String) -> void:
 	font = DynamicFont.new()
 	font.font_data = load(path)
 	font.size = 18
+	
+	font_smaller = DynamicFont.new()
+	font_smaller.font_data = load(path)
+	font_smaller.size = 14
 
 func update_labels(shift_down: bool) -> void:
 	if shift_down:
@@ -61,3 +67,6 @@ func _set_font() -> void:
 	for node in self.get_children():
 		if node is Label:
 			node.add_font_override("font", font)
+	for node in self.order_list.get_children():
+		if node is Label:
+			node.add_font_override("font", font_smaller)
