@@ -13,7 +13,7 @@ enum TOPPINGS {
 }
 
 onready var dough: Sprite = $Dough
-onready var peps: Sprite = $Peps
+onready var peps: Sprite = $Toppings/Peps
 
 onready var scaleUp: Vector2 = self.scale
 
@@ -32,11 +32,15 @@ func reset() -> void:
 	self.modulate = "ffffff"
 	$SteamSprites.visible = false
 	self.toppings = []
+	self._hide_toppings()
 	self.is_cooked = false
 	self.position = Vector2(-98,138)
 	
 
 
+func _hide_toppings() -> void:
+	for t in $Toppings.get_children():
+		t.visible = false
 
 func pulse() -> void:
 	_scale_down()
@@ -81,6 +85,7 @@ func _tween_done(object: Object, node_path: NodePath):
 	pass
 
 func add_topping(topping: String) -> void:
+	print("here")
 	if !self.toppings.has(topping):
 		match(topping):
 			Global.toppings.up: # ex cheese

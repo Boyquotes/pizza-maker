@@ -5,6 +5,27 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
 
+[node name="LblDay" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 45.0
+margin_bottom = 18.0
+text = "Mon"
+
+[node name="LblCash" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 21.0
+margin_right = 51.0
+margin_bottom = 35.0
+text = "$30.75"
+
+[node name="LblDailyCash" type="Label" parent="."]
+margin_left = 9.0
+margin_top = 38.0
+margin_right = 49.0
+margin_bottom = 52.0
+text = "$1.23"
+
 [node name="ToppingUp" type="Label" parent="."]
 margin_left = 393.0
 margin_top = 198.0

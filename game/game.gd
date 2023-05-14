@@ -5,6 +5,8 @@ var day_of_week: Array = [
 	"Mon", "Tues", "Wed", "Thurs", "Fri"
 ]
 
+var cost_of_dough: float = 2.0
+
 var cash: float
 var is_shift_held: bool 
 var break_time: float = 2.0
@@ -12,6 +14,7 @@ var time_per_round: float = 6.0
 
 var daily_income: float
 var daily_tips: float
+var daily_expense: float
 
 
 
@@ -52,11 +55,12 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 			else:
 				self.pizza.add_topping(Global.toppings.up)
 		elif event.is_action_pressed("down_topping"):
-			self.pizza.pulse()
-			if self.is_shift_held:
-				self.pizza.add_topping(Global.toppings.alt_down)
-			else:
-				self.pizza.add_topping(Global.toppings.down)
+			# Trash pizza
+			print("trash the pizza")
+#			if self.is_shift_held:
+#				self.pizza.add_topping(Global.toppings.alt_down)
+#			else:
+#				self.pizza.add_topping(Global.toppings.down)
 		elif event.is_action_pressed("left_topping"):
 			self.pizza.pulse()
 			if self.is_shift_held:
@@ -77,8 +81,14 @@ func _start_new_day() -> void:
 	# Update day of week on HUD
 
 func _start_new_round() -> void:
+	# TODO: change to start_new_order
+	self.daily_expense += self.cost_of_dough
 	self.animation_player.play("slide_pizza_in")
-	
+
+func _trash_pizza() -> void:
+	# explode pizza with animation 
+	pass
+	# Send in new pizza 
 
 func _end_round() -> void:
 	print("time ran out, customer left")
