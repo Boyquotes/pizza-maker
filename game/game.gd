@@ -138,6 +138,7 @@ func _on_animation_done(anim_name: String):
 			print("new pizza on table")
 		"slide_pizza_out":
 			print("pizza has been served")
+			# TODO: Check if pizza was right
 			self.pizza.reset()
 			self.trm_next_order.start(self.break_time)
 			# Reset pizza
