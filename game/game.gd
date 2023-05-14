@@ -17,7 +17,7 @@ var order_pizza_code: Array
 #COOKED = 0
 #CHEESE = 1
 #PEPPERONI = 2
-#CHICKEN = 3
+#sauce = 3
 #OLIVES = 4
 #PINEAPPLES = 5
 #MUSHROOMS = 6

@@ -9,6 +9,6 @@ var toppings: Dictionary = {
 	"alt_up": "pineapple",
 	"alt_down": "trash",
 	"alt_left": "mushrooms",
-	"alt_right": "chicken",
+	"alt_right": "sauce",
 }
 

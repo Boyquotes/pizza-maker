@@ -28,11 +28,11 @@ func _ready() -> void:
 func _load_font(path: String) -> void:
 	font = DynamicFont.new()
 	font.font_data = load(path)
-	font.size = 18
+	font.size = 24
 	
 	font_smaller = DynamicFont.new()
 	font_smaller.font_data = load(path)
-	font_smaller.size = 14
+	font_smaller.size = 18
 
 func update_labels(shift_down: bool) -> void:
 	if shift_down:

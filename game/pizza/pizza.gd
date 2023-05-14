@@ -21,7 +21,7 @@ onready var scaleUp: Vector2 = self.scale
 onready var cheese_sprite: Sprite = $Toppings/Cheese
 onready var peps_sprite: Sprite = $Toppings/Peps
 onready var mushrooms_sprite: Sprite = $Toppings/Mushrooms
-onready var chicken_sprite: Sprite = $Toppings/Chicken
+onready var sauce_sprite: Sprite = $Toppings/Sauce
 onready var olives_sprite: Sprite = $Toppings/Olives
 onready var pineapples_sprite: Sprite = $Toppings/Pineapples
 
@@ -50,7 +50,7 @@ func reset() -> void:
 	self.pizza_code = [0,0,0,0,0,0,0]
 	self._hide_toppings()
 	self.is_cooked = false
-	self.position = Vector2(-98,138)
+	self.position = Vector2(-280,280)
 	
 
 func _update_code(array_item: int) -> void:
@@ -109,7 +109,7 @@ func _tween_done(object: Object, node_path: NodePath):
 #COOKED = 0
 #CHEESE = 1
 #PEPPERONI = 2
-#CHICKEN = 3
+#sauce = 3
 #OLIVES = 4
 #PINEAPPLES = 5
 #MUSHROOMS = 6
@@ -130,7 +130,7 @@ func _show_sprite(topping_code: int) -> void:
 		2:
 			self.peps_sprite.visible = true
 		3:
-			self.chicken_sprite.visible = true
+			self.sauce_sprite.visible = true
 		4:
 			self.olives_sprite.visible = true
 		5:
