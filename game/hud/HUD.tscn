@@ -128,7 +128,7 @@ text = "- Pepperoni"
 margin_top = 54.0
 margin_right = 135.0
 margin_bottom = 68.0
-text = "- Chicken"
+text = "- Sauce"
 
 [node name="4" type="Label" parent="Order"]
 margin_top = 72.0
