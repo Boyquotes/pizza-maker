@@ -26,7 +26,7 @@ A pizza making game inspired by [Cook, Serve, Delicious!](https://store.steampow
 - Add music
 
 
-## Possible additions
+## Possible additions :thought_balloon:
 - 
 - 
 
@@ -35,7 +35,7 @@ A pizza making game inspired by [Cook, Serve, Delicious!](https://store.steampow
 ## Credits
 ### Programming :computer: 
 - SugarVoid
-### Sprites
+### Sprites :art:
 - SugarVoid
 ### Font :black_nib:
 - c64esque by [Nimble Beasts Collective](https://nimblebeastscollective.itch.io/nb-pixel-font-bundle-2)
