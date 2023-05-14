@@ -15,6 +15,7 @@ onready var left_back: Label = $LeftBack
 onready var down_back: Label = $DownBack
 onready var right_back: Label = $RightBack
 onready var bottom_back: Label = $BottomBack
+onready var order_number: Label = $OrderNumber
 
 onready var order_list: VBoxContainer = $Order
 
@@ -71,8 +72,9 @@ func reset_order_color() -> void:
 	for c in self.order_list.get_children():
 		c.modulate = Color("ffffff")
 
-func update_order_list(code: Array) -> void:
+func update_order_list(code: Array, order_num: int) -> void:
 	#for c in self.order_list.get_children():
+	self.order_number.text = str("Order #", order_num)
 	for i in code.size():
 		self.order_list.get_child(i).visible = code[i]
 

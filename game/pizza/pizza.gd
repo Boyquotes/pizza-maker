@@ -14,9 +14,21 @@ enum TOPPINGS {
 }
 
 onready var dough: Sprite = $Dough
-onready var peps: Sprite = $Toppings/Peps
+#onready var peps: Sprite = $Toppings/Peps
 
 onready var scaleUp: Vector2 = self.scale
+
+onready var cheese_sprite: Sprite = $Toppings/Cheese
+onready var peps_sprite: Sprite = $Toppings/Peps
+onready var mushrooms_sprite: Sprite = $Toppings/Mushrooms
+onready var chicken_sprite: Sprite = $Toppings/Chicken
+onready var olives_sprite: Sprite = $Toppings/Olives
+onready var pineapples_sprite: Sprite = $Toppings/Pineapples
+
+
+
+
+
 
 var pizza_code: Array
 var is_cooked: bool 
@@ -106,7 +118,25 @@ func _tween_done(object: Object, node_path: NodePath):
 func _adding_topping(topping_code: int) -> void:
 	self.pulse()
 	_update_code(topping_code)
+	_show_sprite(topping_code)
 	self.emit_signal("added_topping", topping_code)
+
+func _show_sprite(topping_code: int) -> void:
+	match topping_code:
+		0:
+			pass
+		1:
+			self.cheese_sprite.visible = true
+		2:
+			self.peps_sprite.visible = true
+		3:
+			self.chicken_sprite.visible = true
+		4:
+			self.olives_sprite.visible = true
+		5:
+			self.pineapples_sprite.visible = true
+		6:
+			self.mushrooms_sprite.visible = true
 
 func add_topping(topping: String) -> void:
 	print("here")

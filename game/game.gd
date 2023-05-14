@@ -25,6 +25,8 @@ var order_pizza_code: Array
 var daily_income: float
 var daily_tips: float
 var daily_expense: float
+
+var order_num: int
 var order_items: int = 3
 
 
@@ -42,16 +44,19 @@ func _ready() -> void:
 	self.trm_next_order.connect("timeout", self, "_start_new_round")
 	self.trm_order_time.connect("timeout", self, "_end_round")
 	self.pizza.connect("added_topping", self.hud, "turn_item_green")
+	self._start_new_game()
+	
+	print(_get_new_pizza_code(self.order_items))
+	print(_get_new_pizza_code(self.order_items))
+	print(_get_new_pizza_code(self.order_items))
+	print(_get_new_pizza_code(self.order_items))
+	print(_get_new_pizza_code(self.order_items))
+	print(_get_new_pizza_code(self.order_items))
+	
+	
+func _start_new_game() -> void:
+	self.order_num = 0
 	self._start_new_round()
-	
-	print(_get_new_pizza_code(self.order_items))
-	print(_get_new_pizza_code(self.order_items))
-	print(_get_new_pizza_code(self.order_items))
-	print(_get_new_pizza_code(self.order_items))
-	print(_get_new_pizza_code(self.order_items))
-	print(_get_new_pizza_code(self.order_items))
-	
-	
 
 func _process(delta: float) -> void:
 	self.is_shift_held = Input.is_action_pressed("left_shift")
@@ -104,9 +109,10 @@ func _start_new_day() -> void:
 
 func _start_new_round() -> void:
 	self.hud.reset_order_color()
+	self.order_num += 1
 	self.pizza.reset()
 	self.order_pizza_code = _get_new_pizza_code(self.order_items)
-	self.hud.update_order_list(self.order_pizza_code)
+	self.hud.update_order_list(self.order_pizza_code, self.order_num)
 	# TODO: change to start_new_order
 	self.daily_expense += self.cost_of_dough
 	self.animation_player.play("slide_pizza_in")
@@ -132,6 +138,14 @@ func _get_new_pizza_code(order_items: int) -> Array:
 func _end_round() -> void:
 	print("time ran out, customer left")
 
+func _check_pizza() -> void:
+	print(str("Order was: ", self.order_pizza_code))
+	print(str("Player made: ", self.pizza.pizza_code))
+	if self.order_pizza_code == self.pizza.pizza_code:
+		print("Correct Order")
+	else:
+		print("Wrong Order")
+
 func _on_animation_done(anim_name: String):
 	match anim_name:
 		"slide_pizza_in":
@@ -139,6 +153,7 @@ func _on_animation_done(anim_name: String):
 		"slide_pizza_out":
 			print("pizza has been served")
 			# TODO: Check if pizza was right
+			self._check_pizza()
 			self.pizza.reset()
 			self.trm_next_order.start(self.break_time)
 			# Reset pizza
