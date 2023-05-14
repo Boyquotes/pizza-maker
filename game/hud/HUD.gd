@@ -1,3 +1,4 @@
+class_name HUD
 extends CanvasLayer
 
 var font: DynamicFont
@@ -21,6 +22,7 @@ onready var order_list: VBoxContainer = $Order
 func _ready() -> void:
 	_load_font("res://game/font/c64esque.ttf")
 	_set_font()
+	turn_item_green(3)
 
 func _load_font(path: String) -> void:
 	font = DynamicFont.new()
@@ -62,6 +64,17 @@ func update_labels(shift_down: bool) -> void:
 		self.bottom.text = "Serve"
 		self.bottom_back.text = "Cook"
 
+func turn_item_green(child: int) -> void:
+	self.order_list.get_child(child).modulate = Color.green
+
+func reset_order_color() -> void:
+	for c in self.order_list.get_children():
+		c.modulate = Color("ffffff")
+
+func update_order_list(code: Array) -> void:
+	#for c in self.order_list.get_children():
+	for i in code.size():
+		self.order_list.get_child(i).visible = code[i]
 
 func _set_font() -> void:
 	for node in self.get_children():

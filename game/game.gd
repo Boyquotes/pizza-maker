@@ -12,12 +12,23 @@ var is_shift_held: bool
 var break_time: float = 2.0
 var time_per_round: float = 6.0
 
+var order_pizza_code: Array
+
+#COOKED = 0
+#CHEESE = 1
+#PEPPERONI = 2
+#CHICKEN = 3
+#OLIVES = 4
+#PINEAPPLES = 5
+#MUSHROOMS = 6
+
 var daily_income: float
 var daily_tips: float
 var daily_expense: float
+var order_items: int = 3
 
 
-
+onready var hud: HUD = $HUD
 onready var pizza: Pizza = get_node("Pizza")
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var trm_next_order: Timer = get_node("TrmNextOrder")
@@ -26,10 +37,21 @@ onready var trm_order_time: Timer = get_node("TrmOrderTime")
 
 
 func _ready() -> void:
+	self.order_pizza_code.resize(7)
 	self.animation_player.connect("animation_finished", self, "_on_animation_done")
 	self.trm_next_order.connect("timeout", self, "_start_new_round")
 	self.trm_order_time.connect("timeout", self, "_end_round")
+	self.pizza.connect("added_topping", self.hud, "turn_item_green")
 	self._start_new_round()
+	
+	print(_get_new_pizza_code(self.order_items))
+	print(_get_new_pizza_code(self.order_items))
+	print(_get_new_pizza_code(self.order_items))
+	print(_get_new_pizza_code(self.order_items))
+	print(_get_new_pizza_code(self.order_items))
+	print(_get_new_pizza_code(self.order_items))
+	
+	
 
 func _process(delta: float) -> void:
 	self.is_shift_held = Input.is_action_pressed("left_shift")
@@ -40,7 +62,7 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 	
 	if !self.animation_player.is_playing():
 		if event.is_action_pressed("ui_accept"):
-			# $Pizza.pulse()
+
 			if self.is_shift_held:
 				self.pizza.cook()
 			else:
@@ -49,7 +71,7 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 				# start timer to get new order and send in blank pizza
 			
 		if event.is_action_pressed("up_topping"):
-			self.pizza.pulse()
+
 			if self.is_shift_held:
 				self.pizza.add_topping(Global.toppings.alt_up)
 			else:
@@ -62,13 +84,13 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 #			else:
 #				self.pizza.add_topping(Global.toppings.down)
 		elif event.is_action_pressed("left_topping"):
-			self.pizza.pulse()
+
 			if self.is_shift_held:
 				self.pizza.add_topping(Global.toppings.alt_left)
 			else:
 				self.pizza.add_topping(Global.toppings.left)
 		elif event.is_action_pressed("right_topping"):
-			self.pizza.pulse()
+
 			if self.is_shift_held:
 				self.pizza.add_topping(Global.toppings.alt_right)
 			else:
@@ -81,6 +103,10 @@ func _start_new_day() -> void:
 	# Update day of week on HUD
 
 func _start_new_round() -> void:
+	self.hud.reset_order_color()
+	self.pizza.reset()
+	self.order_pizza_code = _get_new_pizza_code(self.order_items)
+	self.hud.update_order_list(self.order_pizza_code)
 	# TODO: change to start_new_order
 	self.daily_expense += self.cost_of_dough
 	self.animation_player.play("slide_pizza_in")
@@ -89,6 +115,19 @@ func _trash_pizza() -> void:
 	# explode pizza with animation 
 	pass
 	# Send in new pizza 
+
+func _get_new_pizza_code(order_items: int) -> Array:
+	randomize()
+	var code: Array = []
+	code.resize(7)
+	code[0] = randi() & 1
+	code[1] = randi() & 1
+	code[2] = randi() & 1
+	code[3] = randi() & 1
+	code[4] = randi() & 1
+	code[5] = randi() & 1
+	code[6] = randi() & 1
+	return code
 
 func _end_round() -> void:
 	print("time ran out, customer left")

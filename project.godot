@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "CanvasLayer",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://game/hud/HUD.gd"
+}, {
 "base": "Node2D",
 "class": "Pizza",
 "language": "GDScript",
 "path": "res://game/pizza/pizza.gd"
 } ]
 _global_script_class_icons={
+"HUD": "",
 "Pizza": ""
 }
 

@@ -1,15 +1,16 @@
 class_name Pizza
 extends Node2D
 
+signal added_topping
 
 
 enum TOPPINGS {
 	CHEESE,
-	PEPS,
+	PEPPERONI,
 	CHICKEN,
 	OLIVES,
-	PINEAPPLE,
-	
+	PINEAPPLES,
+	MUSHROOMS,
 }
 
 onready var dough: Sprite = $Dough
@@ -17,6 +18,7 @@ onready var peps: Sprite = $Toppings/Peps
 
 onready var scaleUp: Vector2 = self.scale
 
+var pizza_code: Array
 var is_cooked: bool 
 
 var toppings: Array
@@ -26,17 +28,21 @@ var seconds = 0.02
 
 
 func _ready() -> void:
+	self.pizza_code.resize(7)
 	$Tween.connect("tween_completed", self, "_tween_done")
 
 func reset() -> void:
 	self.modulate = "ffffff"
 	$SteamSprites.visible = false
 	self.toppings = []
+	self.pizza_code = [0,0,0,0,0,0,0]
 	self._hide_toppings()
 	self.is_cooked = false
 	self.position = Vector2(-98,138)
 	
 
+func _update_code(array_item: int) -> void:
+	self.pizza_code[array_item] = 1
 
 func _hide_toppings() -> void:
 	for t in $Toppings.get_children():
@@ -60,6 +66,7 @@ func _get_steam_pos() -> Vector2:
 func cook() -> void:
 	if !self.is_cooked:
 		_add_steam()
+		self._adding_topping(0)
 		self.is_cooked = true
 	else:
 		self._burn()
@@ -84,25 +91,48 @@ func _scale_up() -> void:
 func _tween_done(object: Object, node_path: NodePath):
 	pass
 
+
+
+
+#COOKED = 0
+#CHEESE = 1
+#PEPPERONI = 2
+#CHICKEN = 3
+#OLIVES = 4
+#PINEAPPLES = 5
+#MUSHROOMS = 6
+
+
+func _adding_topping(topping_code: int) -> void:
+	self.pulse()
+	_update_code(topping_code)
+	self.emit_signal("added_topping", topping_code)
+
 func add_topping(topping: String) -> void:
 	print("here")
 	if !self.toppings.has(topping):
 		match(topping):
-			Global.toppings.up: # ex cheese
+			Global.toppings.up: # cheese
 				pass
-			Global.toppings.down: # chicken
+				self._adding_topping(1)
+			Global.toppings.down: # trash
 				pass
 			Global.toppings.left: # pepperoni
+				self._adding_topping(2)
 				pass
 			Global.toppings.right: # olives
+				self._adding_topping(4)
 				pass
 			Global.toppings.alt_up: # pineapple
+				self._adding_topping(5)
 				pass
-			Global.toppings.alt_down: # mushroom
+			Global.toppings.alt_down: # trash
 				pass
-			Global.toppings.alt_left: # g peppers
+			Global.toppings.alt_left: # mushrooms
+				self._adding_topping(6)
 				pass
-			Global.toppings.alt_right: # onion
+			Global.toppings.alt_right: # chicken
+				self._adding_topping(3)
 				pass
 
 		print_debug(str("adding ", topping))

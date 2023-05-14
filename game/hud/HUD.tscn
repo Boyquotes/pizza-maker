@@ -94,52 +94,59 @@ custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 0.184314 )
 text = "Cook"
 align = 1
 
-[node name="Order" type="VBoxContainer" parent="."]
-margin_left = 7.0
-margin_top = 169.0
-margin_right = 142.0
-margin_bottom = 291.0
-
-[node name="Label7" type="Label" parent="Order"]
-margin_right = 135.0
-margin_bottom = 14.0
+[node name="Static" type="Label" parent="."]
+margin_left = 4.0
+margin_top = 147.0
+margin_right = 139.0
+margin_bottom = 161.0
 text = "Order #"
 
-[node name="Label6" type="Label" parent="Order"]
+[node name="Order" type="VBoxContainer" parent="."]
+margin_left = 5.0
+margin_top = 169.0
+margin_right = 140.0
+margin_bottom = 309.0
+
+[node name="0" type="Label" parent="Order"]
+margin_right = 135.0
+margin_bottom = 14.0
+text = "- Cooked"
+
+[node name="1" type="Label" parent="Order"]
 margin_top = 18.0
 margin_right = 135.0
 margin_bottom = 32.0
-text = "cook?"
+text = "- Cheese"
 
-[node name="Label" type="Label" parent="Order"]
+[node name="2" type="Label" parent="Order"]
 margin_top = 36.0
 margin_right = 135.0
 margin_bottom = 50.0
-text = "one"
+text = "- Pepperoni"
 
-[node name="Label2" type="Label" parent="Order"]
+[node name="3" type="Label" parent="Order"]
 margin_top = 54.0
 margin_right = 135.0
 margin_bottom = 68.0
-text = "two"
+text = "- Chicken"
 
-[node name="Label3" type="Label" parent="Order"]
+[node name="4" type="Label" parent="Order"]
 margin_top = 72.0
 margin_right = 135.0
 margin_bottom = 86.0
-text = "three"
+text = "- Olives"
 
-[node name="Label4" type="Label" parent="Order"]
+[node name="5" type="Label" parent="Order"]
 margin_top = 90.0
 margin_right = 135.0
 margin_bottom = 104.0
-text = "four"
+text = "- Pineapples"
 
-[node name="Label5" type="Label" parent="Order"]
+[node name="6" type="Label" parent="Order"]
 margin_top = 108.0
 margin_right = 135.0
 margin_bottom = 122.0
-text = "five"
+text = "- Mushrooms"
 
 [node name="Bottom" type="Label" parent="."]
 margin_left = 193.0
