@@ -34,6 +34,12 @@ func _load_font(path: String) -> void:
 	font_smaller.font_data = load(path)
 	font_smaller.size = 18
 
+func set_max_time_left(time: float) -> void:
+	$TextureProgress.max_value = time * 20
+
+func update_time_left_bar(time_left: float) -> void:
+	$TextureProgress.value = time_left * 20
+
 func update_labels(shift_down: bool) -> void:
 	if shift_down:
 		self.topping_up.text = Global.toppings.alt_up.capitalize()

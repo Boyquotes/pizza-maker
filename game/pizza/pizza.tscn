@@ -84,11 +84,11 @@ texture = ExtResource( 2 )
 [node name="Toppings" type="Node2D" parent="."]
 
 [node name="Sauce" type="Sprite" parent="Toppings"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 640, 128, 128 )
 
 [node name="Cheese" type="Sprite" parent="Toppings"]
+modulate = Color( 1, 0.968627, 0.521569, 1 )
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 256, 128, 128 )
 
@@ -118,33 +118,36 @@ anims/slide_in = SubResource( 2 )
 scale = Vector2( 3.5, 3.5 )
 
 [node name="Steam" type="AnimatedSprite" parent="SteamSprites"]
-position = Vector2( -44.0816, -37.9592 )
+position = Vector2( -48.2041, -37.9592 )
+scale = Vector2( 0.742346, 1 )
 frames = SubResource( 9 )
-frame = 2
 playing = true
 
 [node name="Steam2" type="AnimatedSprite" parent="SteamSprites"]
-position = Vector2( 32.2449, 11.8367 )
+position = Vector2( 26.898, 11.8367 )
+scale = Vector2( 0.665816, 1 )
 frames = SubResource( 9 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="Steam3" type="AnimatedSprite" parent="SteamSprites"]
 position = Vector2( 29.3878, -50.6122 )
 frames = SubResource( 9 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="Steam4" type="AnimatedSprite" parent="SteamSprites"]
-position = Vector2( -2, -3 )
+position = Vector2( -2.85714, -12.2449 )
+scale = Vector2( 0.741071, 1.11698 )
 frames = SubResource( 9 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="Steam5" type="AnimatedSprite" parent="SteamSprites"]
-position = Vector2( -30.6122, 32.2449 )
+position = Vector2( -40.4082, 30.2041 )
+scale = Vector2( 0.614797, 1 )
 frames = SubResource( 9 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

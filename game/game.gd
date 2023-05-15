@@ -28,6 +28,7 @@ var daily_expense: float
 
 var order_num: int
 var order_items: int = 3
+var order_time: float = 5.0
 
 
 onready var hud: HUD = $HUD
@@ -61,6 +62,7 @@ func _start_new_game() -> void:
 func _process(delta: float) -> void:
 	self.is_shift_held = Input.is_action_pressed("left_shift")
 	$HUD.update_labels(self.is_shift_held)
+	self.hud.update_time_left_bar(self.trm_order_time.time_left)
 	
 
 func _unhandled_key_input(event: InputEventKey) -> void:
@@ -109,6 +111,7 @@ func _start_new_day() -> void:
 
 func _start_new_round() -> void:
 	self.hud.reset_order_color()
+	self.hud.set_max_time_left(self.order_time)
 	self.order_num += 1
 	self.pizza.reset()
 	self.order_pizza_code = _get_new_pizza_code(self.order_items)
@@ -116,6 +119,7 @@ func _start_new_round() -> void:
 	# TODO: change to start_new_order
 	self.daily_expense += self.cost_of_dough
 	self.animation_player.play("slide_pizza_in")
+	
 
 func _trash_pizza() -> void:
 	# explode pizza with animation 
@@ -137,6 +141,7 @@ func _get_new_pizza_code(order_items: int) -> Array:
 
 func _end_round() -> void:
 	print("time ran out, customer left")
+	# Trash the pizza 
 
 func _check_pizza() -> void:
 	print(str("Order was: ", self.order_pizza_code))
@@ -150,6 +155,7 @@ func _on_animation_done(anim_name: String):
 	match anim_name:
 		"slide_pizza_in":
 			print("new pizza on table")
+			self.trm_order_time.start(self.order_time)
 		"slide_pizza_out":
 			print("pizza has been served")
 			# TODO: Check if pizza was right
@@ -157,4 +163,6 @@ func _on_animation_done(anim_name: String):
 			self.pizza.reset()
 			self.trm_next_order.start(self.break_time)
 			# Reset pizza
+		"throw_away_pizza":
+			self.pizza.reset()
 
