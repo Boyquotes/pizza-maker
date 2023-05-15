@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://game/pizza/pizza.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/game.gd" type="Script" id=2]
@@ -36,6 +36,22 @@ tracks/0/keys = {
 "values": [ Vector2( 520, 280 ), Vector2( 520, -225 ) ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "trash_pizza"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pizza:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 520, 280 ), Vector2( 520, 880 ) ]
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -45,13 +61,14 @@ scale = Vector2( 132.688, 78.9375 )
 texture = ExtResource( 3 )
 
 [node name="Pizza" parent="." instance=ExtResource( 1 )]
-position = Vector2( -280, 280 )
+position = Vector2( 520, 880 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/slide_pizza_in = SubResource( 1 )
 anims/slide_pizza_out = SubResource( 2 )
+anims/trash_pizza = SubResource( 3 )
 
 [node name="TrmNextOrder" type="Timer" parent="."]
 one_shot = true

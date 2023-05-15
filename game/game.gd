@@ -141,6 +141,7 @@ func _get_new_pizza_code(order_items: int) -> Array:
 
 func _end_round() -> void:
 	print("time ran out, customer left")
+	self.animation_player.play("trash_pizza")
 	# Trash the pizza 
 
 func _check_pizza() -> void:
@@ -151,6 +152,10 @@ func _check_pizza() -> void:
 	else:
 		print("Wrong Order")
 
+func _get_new_pizza() -> void:
+	self.pizza.reset()
+	self.trm_next_order.start(self.break_time)
+
 func _on_animation_done(anim_name: String):
 	match anim_name:
 		"slide_pizza_in":
@@ -160,9 +165,8 @@ func _on_animation_done(anim_name: String):
 			print("pizza has been served")
 			# TODO: Check if pizza was right
 			self._check_pizza()
-			self.pizza.reset()
-			self.trm_next_order.start(self.break_time)
+			self._get_new_pizza()
 			# Reset pizza
-		"throw_away_pizza":
-			self.pizza.reset()
+		"trash_pizza":
+			self._get_new_pizza()
 
