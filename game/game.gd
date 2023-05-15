@@ -10,7 +10,7 @@ var cost_of_dough: float = 2.0
 var cash: float
 var is_shift_held: bool 
 var break_time: float = 2.0
-var time_per_round: float = 6.0
+var time_per_round: float = 10.0
 
 var order_pizza_code: Array
 
@@ -161,8 +161,10 @@ func _on_animation_done(anim_name: String):
 		"slide_pizza_in":
 			print("new pizza on table")
 			self.trm_order_time.start(self.order_time)
+			self.trm_order_time.paused = false
 		"slide_pizza_out":
 			print("pizza has been served")
+			self.trm_order_time.paused = true
 			# TODO: Check if pizza was right
 			self._check_pizza()
 			self._get_new_pizza()
