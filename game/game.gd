@@ -10,7 +10,7 @@ var cost_of_dough: float = 2.0
 var cash: float
 var is_shift_held: bool 
 var break_time: float = 2.0
-var time_per_round: float = 10.0
+var time_per_round: float = 15.0
 
 var order_pizza_code: Array
 
@@ -28,7 +28,7 @@ var daily_expense: float
 
 var order_num: int
 var order_items: int = 3
-var order_time: float = 5.0
+var order_time: float = 10.0
 
 
 onready var hud: HUD = $HUD

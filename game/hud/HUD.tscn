@@ -46,69 +46,69 @@ margin_bottom = 52.0
 text = "$1.23"
 
 [node name="ToppingUp" type="Label" parent="."]
-margin_left = 843.0
+margin_left = 813.0
 margin_top = 452.0
-margin_right = 883.0
+margin_right = 853.0
 margin_bottom = 466.0
 text = "Peps"
 align = 1
 
 [node name="TopBack" type="Label" parent="."]
-margin_left = 850.0
+margin_left = 820.0
 margin_top = 444.0
-margin_right = 890.0
+margin_right = 860.0
 margin_bottom = 458.0
 custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 0.184314 )
 text = "Cook"
 align = 1
 
 [node name="ToppingLeft" type="Label" parent="."]
-margin_left = 754.0
-margin_top = 498.0
-margin_right = 794.0
-margin_bottom = 512.0
+margin_left = 713.0
+margin_top = 495.0
+margin_right = 753.0
+margin_bottom = 509.0
 text = "Peps"
 align = 1
 
 [node name="LeftBack" type="Label" parent="."]
-margin_left = 769.0
-margin_top = 492.0
-margin_right = 809.0
-margin_bottom = 506.0
+margin_left = 728.0
+margin_top = 489.0
+margin_right = 768.0
+margin_bottom = 503.0
 custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 0.184314 )
 text = "Cook"
 align = 1
 
 [node name="ToppingDown" type="Label" parent="."]
-margin_left = 846.0
+margin_left = 816.0
 margin_top = 538.0
-margin_right = 886.0
+margin_right = 856.0
 margin_bottom = 552.0
 text = "Peps"
 align = 1
 
 [node name="DownBack" type="Label" parent="."]
-margin_left = 857.0
+margin_left = 827.0
 margin_top = 531.0
-margin_right = 897.0
+margin_right = 867.0
 margin_bottom = 545.0
 custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 0.184314 )
 text = "Cook"
 align = 1
 
 [node name="ToppingRight" type="Label" parent="."]
-margin_left = 898.0
-margin_top = 494.0
-margin_right = 938.0
-margin_bottom = 508.0
+margin_left = 918.0
+margin_top = 496.0
+margin_right = 958.0
+margin_bottom = 510.0
 text = "Peps"
 align = 1
 
 [node name="RightBack" type="Label" parent="."]
-margin_left = 911.0
-margin_top = 488.0
-margin_right = 951.0
-margin_bottom = 502.0
+margin_left = 931.0
+margin_top = 490.0
+margin_right = 971.0
+margin_bottom = 504.0
 custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 0.184314 )
 text = "Cook"
 align = 1

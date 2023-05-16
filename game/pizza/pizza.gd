@@ -52,6 +52,8 @@ func reset() -> void:
 	self.is_cooked = false
 	self.position = Vector2(-280,280)
 	
+	
+	
 
 func _update_code(array_item: int) -> void:
 	self.pizza_code[array_item] = 1

@@ -28,11 +28,11 @@ func _ready() -> void:
 func _load_font(path: String) -> void:
 	font = DynamicFont.new()
 	font.font_data = load(path)
-	font.size = 24
+	font.size = 28
 	
 	font_smaller = DynamicFont.new()
 	font_smaller.font_data = load(path)
-	font_smaller.size = 18
+	font_smaller.size = 20
 
 func set_max_time_left(time: float) -> void:
 	$TextureProgress.max_value = time * 20
