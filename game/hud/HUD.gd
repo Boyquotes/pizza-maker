@@ -28,11 +28,11 @@ func _ready() -> void:
 func _load_font(path: String) -> void:
 	font = DynamicFont.new()
 	font.font_data = load(path)
-	font.size = 28
+	font.size = 32
 	
 	font_smaller = DynamicFont.new()
 	font_smaller.font_data = load(path)
-	font_smaller.size = 20
+	font_smaller.size = 24
 
 func set_max_time_left(time: float) -> void:
 	$TextureProgress.max_value = time * 20
@@ -70,6 +70,20 @@ func update_labels(shift_down: bool) -> void:
 		
 		self.bottom.text = "Serve"
 		self.bottom_back.text = "Cook"
+
+func update_cash_labels(daily: float) -> void:
+	$LblDailyCash.text = str("$", get_currency(daily))
+
+static func get_currency(number: float) -> float:
+	# Place the decimal separator
+	var txt_numb = "%.2f" % number
+
+	# Place the thousands separator
+	for idx in range(txt_numb.find(".") - 3, 0, -3):
+		txt_numb = txt_numb.insert(idx, ",")
+	return(txt_numb)
+
+
 
 func turn_item_green(child: int) -> void:
 	self.order_list.get_child(child).modulate = Color.green

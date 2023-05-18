@@ -36,7 +36,7 @@ margin_left = 7.0
 margin_top = 21.0
 margin_right = 51.0
 margin_bottom = 35.0
-text = "$30.75"
+text = "$00.00"
 
 [node name="LblDailyCash" type="Label" parent="."]
 margin_left = 9.0

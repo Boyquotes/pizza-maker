@@ -6,6 +6,7 @@ var day_of_week: Array = [
 ]
 
 var cost_of_dough: float = 2.0
+var base_pizza_value: float = 5.0
 
 var cash: float
 var is_shift_held: bool 
@@ -57,7 +58,9 @@ func _ready() -> void:
 	
 func _start_new_game() -> void:
 	self.order_num = 0
+	self.daily_income = 0
 	self._start_new_round()
+	self.hud.update_cash_labels(self.daily_income)
 
 func _process(delta: float) -> void:
 	self.is_shift_held = Input.is_action_pressed("left_shift")
@@ -130,6 +133,9 @@ func _get_new_pizza_code(order_items: int) -> Array:
 	randomize()
 	var code: Array = []
 	code.resize(7)
+	
+	## var item = code[randi() % code.size()]
+	
 	code[0] = randi() & 1
 	code[1] = randi() & 1
 	code[2] = randi() & 1
@@ -149,8 +155,10 @@ func _check_pizza() -> void:
 	print(str("Player made: ", self.pizza.pizza_code))
 	if self.order_pizza_code == self.pizza.pizza_code:
 		print("Correct Order")
+		self.daily_income += base_pizza_value
 	else:
 		print("Wrong Order")
+	self.hud.update_cash_labels(self.daily_income)
 
 func _get_new_pizza() -> void:
 	self.pizza.reset()
@@ -162,6 +170,7 @@ func _on_animation_done(anim_name: String):
 			print("new pizza on table")
 			self.trm_order_time.start(self.order_time)
 			self.trm_order_time.paused = false
+			self.daily_expense += cost_of_dough
 		"slide_pizza_out":
 			print("pizza has been served")
 			self.trm_order_time.paused = true
