@@ -13,6 +13,7 @@ A pizza making game inspired by [Cook, Serve, Delicious!](https://store.steampow
 
 |Key|Action|
 |:---:|:---:|
+|Shift|Toggle Options|
 |Arrow Keys|Add Toppings|
 |Space|Cook/Serve|
 
