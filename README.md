@@ -1,6 +1,7 @@
 # pizza-maker :pizza:
 
 A pizza making game inspired by [Cook, Serve, Delicious!](https://store.steampowered.com/app/247020/Cook_Serve_Delicious/)
+This more of a way to kill some time between projects. **As on now, I do not plan on workin gon this more.**
 
 
 <hr>
