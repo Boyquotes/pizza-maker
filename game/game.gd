@@ -77,22 +77,20 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 				self.pizza.cook()
 			else:
 				# TODO: Prevent spamming of pressing sapce
+				self.trm_order_time.stop()
 				self.animation_player.play("slide_pizza_out")
 				# start timer to get new order and send in blank pizza
 			
 		if event.is_action_pressed("up_topping"):
-
 			if self.is_shift_held:
 				self.pizza.add_topping(Global.toppings.alt_up)
 			else:
 				self.pizza.add_topping(Global.toppings.up)
+		
 		elif event.is_action_pressed("down_topping"):
 			# Trash pizza
 			print("trash the pizza")
-#			if self.is_shift_held:
-#				self.pizza.add_topping(Global.toppings.alt_down)
-#			else:
-#				self.pizza.add_topping(Global.toppings.down)
+
 		elif event.is_action_pressed("left_topping"):
 
 			if self.is_shift_held:
@@ -127,7 +125,7 @@ func _start_new_round() -> void:
 func _trash_pizza() -> void:
 	# explode pizza with animation 
 	pass
-	# Send in new pizza 
+	# Send in a new pizza 
 
 func _get_new_pizza_code(order_items: int) -> Array:
 	randomize()
@@ -160,9 +158,11 @@ func _check_pizza() -> void:
 		print("Wrong Order")
 	self.hud.update_cash_labels(self.daily_income)
 
+
 func _get_new_pizza() -> void:
 	self.pizza.reset()
 	self.trm_next_order.start(self.break_time)
+
 
 func _on_animation_done(anim_name: String):
 	match anim_name:

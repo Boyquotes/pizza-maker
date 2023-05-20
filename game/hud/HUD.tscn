@@ -25,6 +25,7 @@ texture_progress = SubResource( 2 )
 nine_patch_stretch = true
 
 [node name="LblDay" type="Label" parent="."]
+visible = false
 margin_left = 5.0
 margin_top = 4.0
 margin_right = 45.0
@@ -32,6 +33,7 @@ margin_bottom = 18.0
 text = "Mon"
 
 [node name="LblCash" type="Label" parent="."]
+visible = false
 margin_left = 7.0
 margin_top = 21.0
 margin_right = 51.0
@@ -39,6 +41,7 @@ margin_bottom = 35.0
 text = "$00.00"
 
 [node name="LblDailyCash" type="Label" parent="."]
+visible = false
 margin_left = 9.0
 margin_top = 38.0
 margin_right = 49.0
