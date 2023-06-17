@@ -41,6 +41,7 @@ This more of a way to kill some time between projects. **As on now, This game is
 - SugarVoid
 ### Font :black_nib:
 - c64esque by [Nimble Beasts Collective](https://nimblebeastscollective.itch.io/nb-pixel-font-bundle-2)
+- Socake by [khurasanstudio](www.khurasanstudio.com)
 ### Music :musical_keyboard:
 
 

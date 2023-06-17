@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://game/hud/HUD.gd" type="Script" id=1]
 [ext_resource path="res://game/hud/progress_bar.png" type="Texture" id=2]
+[ext_resource path="res://game/hud/icon_space.png" type="Texture" id=3]
+[ext_resource path="res://game/hud/icon_arrow.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -170,6 +172,52 @@ margin_right = 135.0
 margin_bottom = 122.0
 text = "- Mushrooms"
 
+[node name="Order2" type="VBoxContainer" parent="."]
+margin_left = 910.0
+margin_top = 203.0
+margin_right = 1045.0
+margin_bottom = 343.0
+
+[node name="0" type="Label" parent="Order2"]
+margin_right = 135.0
+margin_bottom = 14.0
+text = "[C]heese"
+
+[node name="1" type="Label" parent="Order2"]
+margin_top = 18.0
+margin_right = 135.0
+margin_bottom = 32.0
+text = "[P]epperoni"
+
+[node name="2" type="Label" parent="Order2"]
+margin_top = 36.0
+margin_right = 135.0
+margin_bottom = 50.0
+text = "[M]ushroom"
+
+[node name="3" type="Label" parent="Order2"]
+margin_top = 54.0
+margin_right = 135.0
+margin_bottom = 68.0
+text = "[S]auce"
+
+[node name="4" type="Label" parent="Order2"]
+margin_top = 72.0
+margin_right = 135.0
+margin_bottom = 86.0
+text = "[O]lives"
+
+[node name="5" type="Label" parent="Order2"]
+margin_top = 90.0
+margin_right = 135.0
+margin_bottom = 104.0
+text = "Pine[A]pples"
+
+[node name="6" type="Label" parent="Order2"]
+margin_top = 108.0
+margin_right = 135.0
+margin_bottom = 122.0
+
 [node name="Bottom" type="Label" parent="."]
 margin_left = 488.0
 margin_top = 530.0
@@ -178,11 +226,44 @@ margin_bottom = 544.0
 text = "Cook"
 align = 1
 
-[node name="BottomBack" type="Label" parent="."]
-margin_left = 505.0
-margin_top = 525.0
-margin_right = 545.0
-margin_bottom = 539.0
-custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 0.184314 )
-text = "Cook"
-align = 1
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 459.0
+margin_top = 549.0
+margin_right = 555.0
+margin_bottom = 589.0
+texture = ExtResource( 3 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 822.0
+margin_top = 404.0
+margin_right = 854.0
+margin_bottom = 436.0
+rect_pivot_offset = Vector2( 16, 16 )
+texture = ExtResource( 4 )
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 676.0
+margin_top = 487.0
+margin_right = 708.0
+margin_bottom = 519.0
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 16, 16 )
+texture = ExtResource( 4 )
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+margin_left = 849.0
+margin_top = 556.0
+margin_right = 881.0
+margin_bottom = 588.0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 16, 16 )
+texture = ExtResource( 4 )
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+margin_left = 974.0
+margin_top = 479.0
+margin_right = 1006.0
+margin_bottom = 511.0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 16, 16 )
+texture = ExtResource( 4 )

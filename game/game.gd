@@ -71,15 +71,14 @@ func _process(delta: float) -> void:
 func _unhandled_key_input(event: InputEventKey) -> void:
 	
 	if !self.animation_player.is_playing():
+		if event.is_action_pressed("cook_pizza"):
+			self.pizza.cook()
+			
 		if event.is_action_pressed("ui_accept"):
-
-			if self.is_shift_held:
-				self.pizza.cook()
-			else:
-				# TODO: Prevent spamming of pressing sapce
-				self.trm_order_time.stop()
-				self.animation_player.play("slide_pizza_out")
-				# start timer to get new order and send in blank pizza
+			# TODO: Prevent spamming of pressing sapce
+			self.trm_order_time.stop()
+			self.animation_player.play("slide_pizza_out")
+			# start timer to get new order and send in blank pizza
 			
 		if event.is_action_pressed("up_topping"):
 			if self.is_shift_held:

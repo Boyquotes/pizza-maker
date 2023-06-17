@@ -14,9 +14,8 @@ onready var top_back: Label = $TopBack
 onready var left_back: Label = $LeftBack
 onready var down_back: Label = $DownBack
 onready var right_back: Label = $RightBack
-onready var bottom_back: Label = $BottomBack
-onready var order_number: Label = $OrderNumber
 
+onready var order_number: Label = $OrderNumber
 onready var order_list: VBoxContainer = $Order
 
 
@@ -53,8 +52,7 @@ func update_labels(shift_down: bool) -> void:
 		
 		self.topping_right.text = Global.toppings.alt_right.capitalize()
 		self.right_back.text = Global.toppings.right.capitalize()
-		self.bottom.text = "Cook"
-		self.bottom_back.text = "Serve"
+
 	else:
 		self.topping_up.text = Global.toppings.up.capitalize()
 		self.top_back.text = Global.toppings.alt_up.capitalize()
@@ -68,8 +66,7 @@ func update_labels(shift_down: bool) -> void:
 		self.topping_right.text = Global.toppings.right.capitalize()
 		self.right_back.text = Global.toppings.alt_right.capitalize()
 		
-		self.bottom.text = "Serve"
-		self.bottom_back.text = "Cook"
+
 
 func update_cash_labels(daily: float) -> void:
 	$LblDailyCash.text = str("$", get_currency(daily))

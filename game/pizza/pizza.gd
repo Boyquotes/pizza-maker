@@ -16,7 +16,7 @@ enum TOPPINGS {
 onready var dough: Sprite = $Dough
 #onready var peps: Sprite = $Toppings/Peps
 
-onready var scaleUp: Vector2 = self.scale
+onready var SCALE_UP: Vector2 = self.scale
 
 onready var cheese_sprite: Sprite = $Toppings/Cheese
 onready var peps_sprite: Sprite = $Toppings/Peps
@@ -24,10 +24,6 @@ onready var mushrooms_sprite: Sprite = $Toppings/Mushrooms
 onready var sauce_sprite: Sprite = $Toppings/Sauce
 onready var olives_sprite: Sprite = $Toppings/Olives
 onready var pineapples_sprite: Sprite = $Toppings/Pineapples
-
-
-
-
 
 
 var pizza_code: Array
@@ -98,13 +94,12 @@ func _scale_down() -> void:
 
 
 func _scale_up() -> void:
-	$Tween.interpolate_property(self, "scale", self.scale, scaleUp, seconds, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property(self, "scale", self.scale, SCALE_UP, seconds, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 
 
 func _tween_done(object: Object, node_path: NodePath):
 	pass
-
 
 
 
